@@ -81,10 +81,11 @@ function addStorageEntry(title, email, password) {
   const entry = document.createElement("li");
   entry.className = "storage__entry";
 
-  const headline = document.createElement("h3");
-  headline.className = "storage__title";
-  headline.textContent = title;
-  entry.append(headline);
+  // const headline = document.createElement("h3");
+  // headline.className = "storage__title";
+  // headline.textContent = title;
+  const headerElement = addHeader(title);
+  entry.append(headerElement);
 
   const descriptionList = document.createElement("dl");
   descriptionList.className = "storage__credentials";
@@ -108,6 +109,13 @@ function addStorageEntry(title, email, password) {
   entry.append(descriptionList);
 
   storage.append(entry);
+}
+
+function addHeader(text) {
+  const headline = document.createElement("h3");
+  headline.className = "storage__title";
+  headline.textContent = text;
+  return headline;
 }
 
 function updatePasswordStrength(text) {
